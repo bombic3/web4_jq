@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>resize02</title>
+    <style>
+        * { margin: 0; padding: 0;}
+        .box {
+            width: 50px;
+            height: 500px;
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+   <div class="box"></div>
+   
+    <script src="js/jquery-3.5.1.js"></script>
+    <script>
+        // box의 width값이 브라우저에서 50px뺀 만큼 변하도록 하여라. 브라우저를 늘렸다 줄여도 유지 되게 .
+        $(function(){
+            $(window).resize(function(){
+                var win_w = $(window).width()
+                $('.box').css({width: win_w - 50 }) //resize가 animate 속도를 따라가지 못하므로 animate 쓰면 안 됨. css사용하기
+                
+                // if(win_w >= 758){ } 여기에 if문 쓰면 반응형
+            }).resize()
+            // = $(window).resize()
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>08.지역변수와 전역변수</title>
+</head>
+<body>
+	<script>
+		// name이라는 변수를 만들기 : '말티즈'
+		var name="말티즈";
+		// 위에 선언한 name을 그대로 표시 됨 : '말티즈'
+		document.write(name ,'<br />')
+		
+		// 함수는 방, 집 개념
+		// name1이라는 함수를 만들기
+		// var - 지역변수 : name1이라는 함수 안에서만 인식, 보통은 거의 지역변수
+		function name1(){
+			var name="럭키";
+			document.write(name ,'<br />')
+		}
+		// name1 : name을 럭키로 변경하는 함수
+		name1()
+		
+		
+		
+		
+		// function 이라는 집안에서 럭키라고 지정했기 때문에 밖에서의 name은 말티즈로 뜸
+		// nane1의 럭키는 지역변수기 때문지 인지 못 해서 - '말티즈'
+		document.write(name ,'<br />')
+		
+		
+		
+		// name2라는 함수를 만들기
+		function name2(){
+			name="흰둥이";
+			document.write(name, '<br />')
+		}
+		// name2 : name을 흰둥이라고 변경하는 함수 - '흰둥이'
+		name2()
+		
+		
+		
+		
+		// var 가 없으면 (전지역)전역변수 : 함수 밖에서도 인지
+		// name2의 흰둥이는 전역변수이기 때문에 함수 밖에서도 인지 - '흰둥이'
+		document.write(name, '<br />')
+		
+		
+	</script>
+	
+	<!-- 그냥 <script>쓰면 var 습관처럼 쓰기 -->
+	
+	<script>
+		var
+	</script>
+	
+	<script>
+		function name1(){
+			var
+		}
+	</script>
+	
+	
+	
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery_filter2_ex</title>
+	<style>
+		.wrap {
+			width: 420px;
+			padding: 10px;
+			background-color: gray;
+		}
+		.box {
+			width: 300px;
+			background-color: #ddd;
+		}
+		ul {
+			width: 200px;
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="box">
+			<ul>
+				<li>연습<a href="#">링크텍스트</a><span>span텍스트</span></li>
+				<li>연습<a href="#">링크텍스트</a><span>span텍스트</span></li>
+				<li>연습<a href="#">링크텍스트</a><span>span텍스트</span></li>
+				<li>연습<a href="#">링크텍스트</a><span>span텍스트</span></li>
+				<li>연습<a href="#">링크텍스트</a><span>span텍스트</span></li>
+			</ul>
+			<p>p태그</p>
+			<span>span태그</span>
+		</div>
+	</div>
+	
+	<script src="js/jquery-3.5.1.js"></script>
+	<script>
+		$(document).ready(function(){
+			// parent() : 타겟을 감싸는 부모태그
+			$('li').parent().css('width',300)
+			
+			// parents() : 타겟을 감싸는 모든 부모태그
+			// 				body, html 전부 width 500됨. 정확한 타겟 지정해줘야 함
+			// parents('') : 타겟을 감싸는 부모태그들 중 ''
+			$('li').parents('.box').css('width',400)
+			
+			// children('') : 타겟의 모든 자식 태그, 또는 자식 태그 중 '' - ul > li
+			$('ul').children().css('color','hotpink')
+			
+			// find('') : 타겟의 후손들 중에서 원하는 태그 선택. 정확한 타겟 지정해줘야 함
+			$('.wrap').find('a').css('color','gold')
+			
+			// next() : 타겟의 다음에 있는 태그 - li + li
+			$('li:eq(2)').next().css('color','blue')
+			
+			// prev() : 타겟의 이전에 있는 태그
+			$('li:eq(2)').prev().css('color','#000')
+			
+			// siblings() : 타겟의 형제태그 모두 선택, 또는 형제태그 중 ''
+			$('ul').siblings('span').css('color','skyblue')
+			
+			
+			// $('li:first') 상황에 따라 선택자안에 못 쓰는 경우 filter 사용
+			
+			// $('li:first') / $('li').filter(':first') 
+			// $('li:first') / $('li').filter(':first') 
+			// $('li:odd') / $('li').filter(':odd') 
+			// $('li:even') / $('li').filter(':even') 
+			
+			
+			// $('li:eq(2)') / $('li').eq(2)
+			
+			// .not() : ~를 제외한
+			$('li').not(':last').css('font-weight','bold')
+			
+			// $('li').not(':first') / $('li:not(:first)')
+			// $('li:not(:first)') : 첫번재를 제외한 li
+			// $('li:not(:last)') : 마지막을 제외한 li
+			// $('li:not(:eq(2))') : 3번째를 제외한 li
+			// $('li:not(:animated)') / $('li'):not(':animated)')
+			//	: 움직이는 것을 제외한 li -> li가 움직이지 않을 때에만 다음을 실행하여라
+		
+			
+			
+			
+		})
+	</script>
+</body>
+</html>

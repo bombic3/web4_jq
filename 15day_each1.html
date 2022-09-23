@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>each1</title>
+</head>
+<body>
+	<ul>
+		<li>김봄비</li>
+		<li>이건우</li>
+		<li>김지원</li>
+		<li>박찬미</li>
+	</ul>
+	
+	<script src="js/jquery-3.5.1.js"></script>
+	<script>
+		$(function(){
+			// 각 li에 있는 글자를 console.log()를 사용하여 콘솔창에 표시
+			
+			// 첫번째 li의 글자를 콘솔창에 표시
+			/*
+			var name1 = $('li').eq(0).text()
+			console.log(name1)
+			*/
+			
+			// for반복문을 사용하여 각자의 글자를 콘솔창에 표시(순서값사용 - 나중에 순서 바뀔 수도 있고 유지보수할 때 번거로움)
+			/*
+			for(i=0; i<=3; i++){
+				var name = $('li').eq(i).text()
+				console.log(name)
+			}
+			*/
+			
+			// each (this .각자의 개념 자동으로 갖고와 사용. 더 편리함.활용도가 더 높음)
+			$('li').each(function(){
+				var name = $(this).text()
+				console.log(name)
+			})
+			
+		})
+	</script>
+	
+	
+</body>
+</html>

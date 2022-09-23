@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>07.함수</title>
+</head>
+<body>
+	<script>
+		fonction(){} : 함수
+	
+		동작에 의한 함수 / 명령어에 의한 함수
+		
+		// 동작
+		.box:hover {width:300px;}  // 마우스를 올렸을 때 실행 - 동작에 의한 함수
+		
+		// 명령어
+		@keyframes top {
+			from {transform:translateY(200px)}
+		}
+		.logo {animation:top 1s;}
+		
+		--------------------
+			
+		// 동작에 의한 함수
+		$('a').click(function(){    })
+		$('.box').mouseover(function(){    })
+		$(document0).ready(function(){    })
+		
+		$('a').click()  // 지금 a를 클릭 - 위에 만든 a click 함수를 실행하여라
+		
+		// 명령어에 의한 함수
+		// 1.
+		function 함수이름(){}  // 함수만들기
+		
+		함수이름()  // 함수를 실행하여라
+		
+		// 2.
+		function color(){ 텍스트가 red로 변경 }  // 텍스트를 red로 변경시키는 color라는 함수를 만들기
+		
+		color()
+		
+		// 3.
+		$('a').click(function(){
+			color()
+		})
+		$('ul').click(function(){
+			color()
+		})
+		
+		
+
+	</script>
+	
+</body>
+</html>

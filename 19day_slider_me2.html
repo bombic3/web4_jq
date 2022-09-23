@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>slider</title>
+	<style>
+		* {margin: 0; padding: 0;}
+		ul,ol,li { list-style: none;}
+		
+		.slider {
+			width: 400px;
+			height: 580px;
+			margin: 0 auto;
+			position: relative;
+			/*
+			overflow: hidden;
+			*/
+		}
+		.list {
+			width: 2000px;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		.list li {
+			float: left;
+			width: 400px;
+		}
+		.list li img {
+			width: 100%;
+		}
+		.slider > button {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			z-index: 10;
+			width: 60px;
+			height: 60px;
+			border-radius: 10px;
+			cursor: pointer;
+		}
+		.slider .prev { left: 10px; }
+		.slider .next { right: 10px; }
+		
+		.indi {
+			position: absolute;
+			left: 0;
+			border: 10px;
+			z-index: 10;
+			width: 100%;
+			text-align: center;
+		}
+		.indi li {
+			display: inline-block;
+			width: 10px;
+			height: 10px;
+			border: 2px solid #fff;
+			border-radius: 10px;
+			text-indent: -9999px;
+			cursor: pointer;
+		}
+		.indi li.on {
+			background-color: #fff;
+		}
+		
+		
+	</style>
+</head>
+<body>
+	<div class="slider">
+		<button class="prev">PREV</button>
+		<button class="next">NEXT</button>
+		
+		<ul class="list">
+			<li><a href="#"><img src="img/mov1.jpg" alt=""></a></li>
+			<li><a href="#"><img src="img/mov2.jpg" alt=""></a></li>
+			<li><a href="#"><img src="img/mov3.jpg" alt=""></a></li>
+			<li><a href="#"><img src="img/mov4.jpg" alt=""></a></li>
+			<li><a href="#"><img src="img/mov1.jpg" alt=""></a></li> <!-- 마지막 사진에서 휙 돌아가지 않고 옆으로 다시 첫사진 나오게 하기 위해 첫사진 붙이기 -->
+		</ul>
+		
+		<div class="indi">
+			<ul>
+				<li class="on">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ul>
+		</div>
+	</div>
+	
+	
+	
+	<script src="js/jquery-3.5.1.js"></script>
+	<script>
+		// 1. next
+		// - 2번 이미지가 나오도록 설정
+		// - 변수를 찾아서 다음으로 계속 이동되도록 설정(증가연산자)
+		// - if문 사용해서 마지막에서 다시 처음으로 이동되도록 설정
+		// - 첫번째 사진 마지막에 넣고 css사용해서 다음이동 타겟(두번째사진) 다시 설정
+		// - .animate() 있는 부분에 .stop() 걸기
+		
+		// 2. prev
+		
+		// 3. indi li <반응형 시 안 깨져서 요즘 이미지 대신 indi로 씀>
+		// - 클릭한 li에만 on이 붙도록 설정
+		// - li를 클릭했을 때 해당하는 위치로 이동
+		// - next, prex 클릭 시
+		
+		
+		$(function(){
+			var n = 0
+			$('.next').click(function(){
+				n++
+				if(n == 5 ){ // n > 4
+					n = 1 // 이동할 타겟(두번째사진으로 넘어가게)
+					$('.list').css({left:-400 * 0})
+					// 마지막 첫사진과 같은 이미지에서 첫사진으로 간 것(동작만 안보이는 것뿐)
+					// 움직이는 동작이 안보이는 css를 사용
+					// 클릭할 때 마지막 첫사진에서 첫번째 첫사진 넘어가는 걸 안보이게 것과 첫사진에서 두번째로 움직이는 것 차례로 움직인 거임 
+				}
+				$('.list').stop().animate({left:-400 * n})
+				// 원통모양으로 이어 붙인 개념
+				// .stop() : 빠르게 눌렀을 때 오류나는 것 방지
+				
+				$('.indi li').removeClass('on')
+				$('.indi li').eq(n).addClass('on')
+				// indi가 4개라서 5번으로 가면 class가 다 없어진 상태 
+				if( n == 4 ){
+					$('.indi li:first').addClass('on')
+				}
+				
+			})
+			
+			$('.prev').click(function(){
+				n--
+				if(n < 0 ){ // n == -1
+					n = 3
+					$('.list').css({left:-400 * 4}) // 마지막과 같은 이미지
+				}
+				$('.list').stop().animate({left:-400 * n}) // +아님, -임 그대로 복사
+			})
+			
+			$('.indi li').click(function(){
+				$('.indi li').removeClass('on')
+				$(this).addClass('on')
+				n = $(this).index() // 밖에서 n 사용하고 있어서 var사용하면 안 됨. var를 쓰면 밖으로 나가게 됨.
+				$('.list').animate({left:-400 * n})
+			})
+		})
+	</script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</body>
+</html>

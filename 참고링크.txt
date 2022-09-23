@@ -1,0 +1,42 @@
+[carousel   slider] - 플로그인은 많이 만들어보고 나중에 사용해보기
+https://owlcarousel2.github.io/OwlCarousel2/
+http://kenwheeler.github.io/slick/
+https://bxslider.com/
+
+[page scroll]
+https://alvarotrigo.com/fullPage/#examples
+
+[플로그인 및 제이쿼리 샘플] //코드펜사이트 애용(menu검색 복붙) //두번째꺼 튜토리얼 예문 demo
+codepen.io
+tympanus.net/codrops
+codyhouse.co/library
+www.htmldrive.net
+http://pixelcog.github.io/parallax.js/
+
+[html, css, jquery 공부 사이트]
+https://www.w3schools.com  -  w3school
+http://tcpschool.com/
+https://opentutorials.org/course/1   -  생활코딩
+https://www.codecademy.com/   -  코드카데미
+https://www.codecademy.com/en/tracks/korean-web  -  코드카데미 한글 Web Fundamentals
+
+http://www.codecademy.com/tracks/jQuery-ko  -  코드카데미 한글 제이쿼리
+https://www.khanacademy.org/ 칸아카데미
+https://ko.khanacademy.org/ 칸아카데미 한글 사이트
+
+https://www.codeschool.com/ 코드스쿨
+
+http://div.or.kr/
+http://tryhelloworld.co.kr/
+http://learn.shayhowe.com/html-css/
+http://thecodeplayer.com/
+http://tcpschool.com/ tcp스쿨
+http://ko.learnlayout.com/toc.html css 레이아웃을 배웁시다
+http://makerspace.tistory.com/tag/htmlcss
+http://flukeout.github.io/ css 선택자 게임
+http://nthmaster.com/ nth:child 공부
+
+
+
+
+ 

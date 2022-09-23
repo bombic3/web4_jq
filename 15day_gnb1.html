@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>gnb1</title>
+	<style>
+		* {margin: 0; padding: 0;}
+		ul,ol,li { list-style: none;}
+		a {text-decoration: none; color: #333;}
+		
+		.list {
+			width: 170px;
+			margin: 0 auto;
+			overflow: hidden;
+			height: 40px;
+		}
+		.list li {}
+		.list li a {
+			display: block;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+			background-color: #ddd;
+		}
+		.list li:first-child a {
+			background-color: #333;
+			color: #fff;
+		}
+	</style>
+	
+	<script src="js/jquery-3.5.1.js"></script>
+	<script>
+		$(function(){
+			// list에 마우스를 올렸을 때, 메뉴가 화면에 표시되도록 설정
+			// list에서 마우스가 빠져나갔을 때, 메뉴가 다시 줄어들도록 설정
+			// over/out 짝꿍  enter/leave 짝꿍
+			
+			// *******메뉴만들기 할때는 무조건 mouseenter/mouseleave 사용해야 됨******
+			
+			// enter는 부모태그에 마우스를 올려도 자식태그를 인지하지 않기 때문에 문제가 생기지 않는다 over는 부모와 자식3개 다 타겟을 여러개 다 인지해서 난리남
+			$('.list').mouseenter(function(){
+				$(this).animate({height:240},100) //100 = 0.1초 정도가 빠르고 괜찮음
+			})
+			
+			$('.list').mouseleave(function(){
+				$(this).stop().animate({height:40},100)
+			})
+			//.stop() 이랑 속도 100 기본
+		})
+	</script>
+</head>
+<body>
+	<ul class="list">
+		<li><a href="#">MENU</a></li>
+		<li><a href="#">menu1</a></li>
+		<li><a href="#">menu2</a></li>
+		<li><a href="#">menu3</a></li>
+		<li><a href="#">menu4</a></li>
+		<li><a href="#">menu5</a></li>
+	</ul>
+</body>
+</html>

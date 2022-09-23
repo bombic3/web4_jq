@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>event2</title>
+    <style>
+        * { margin: 0; padding: 0;}
+        h1 {
+            font-size: 24px;
+            margin: 20px;
+        }
+        .wrap {
+            width: 123px;
+            margin: 20px;
+            margin-bottom: 50px;
+            border: 2px solid #000;
+            background-color: gray;
+        }
+        .wrap div {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            border: 2px solid #000;
+            background-color: #ddd;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            border: 2px solid #000;
+            background-color: #ddd;
+            line-height: 100px;
+            margin: 20px;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>mouseover/mouseout - mouseenter/mouseleave</h1>
+    <div class="wrap">
+        <div></div>
+        <div></div>
+    </div>
+    
+    <h1>mouseenter/mouseleave</h1>
+    <div class="box box1"></div>
+    
+    <h1>hover</h1>
+    <div class="box box2"></div>
+    
+    <h1>on</h1>
+    <div class="box box3"></div>
+    <div class="box box4"></div>
+    
+    
+    
+    <script src="js/jquery-3.5.1.js"></script>
+    <script>
+        $(function(){
+            // [마우스를 올렸을 때]
+            // - mouseover : 자식태그를 타겟으로 인지
+            // - mouseenter : 자식태그를 인지 x
+            
+            // [마우스가 빠져나갔을 때]
+            // - mouseout : 자식태그를 타겟으로 인지
+            // - mouseleave : 자식태그를 인지 x
+            
+            // - mouseover와 mouseout은 .wrap 하나에 올려도 자식태그 전부 개별 인식 - 3개씩 뜸
+            //$('.wrap').mouseover(function(){
+            //    console.log('올렸습니다')
+            //})
+            //$('.wrap').mouseout(function(){
+            //    console.log('빠져나갔습니다')
+            //})
+            
+            // - mouseenter와 mouseleave는 부모태그 하나만 인식
+            // *** menu 만들 때 반드시 enter/leave를 사용한다 ***
+            
+            
+//            $('.wrap').mouseenter(function(){
+//                // console.log('올렸습니다')
+//            })
+//            $('.wrap').mouseleave(function(){
+//                // console.log('빠져나갔습니다')
+//            })
+//            
+//            $('.wrap').hover(function(){
+//                console.log('올렸습니다')
+//            },function(){
+//                console.log('빠져나갔습니다')
+//            })
+            
+            $('.wrap').hover(function(){
+                console.log('올렸습니다')
+            },function(){
+                console.log('빠져나갔습니다')
+            })
+            
+            
+            // box1에 마우스를 올렸을 때, enter라는 글자가 box1에 표시되고,
+            // 벗어나면 leave 라는 글자가 box1에 표시되도록 설정
+            
+//            $('.box1').mouseenter(function(){
+//                $('.box1').text('enter')
+//            }).mouseleave(function(){      // 동일한 타겟을 지우고 붙이기 = 메서드체인
+//                $('.box1').text('leave')
+//            })
+//            
+//            // hover = mouseenter + mouseleave
+//            // $('.box2').hover( mouseenter , mouseleave)
+//            // $('.box2').hover( function(){} , function(){})
+//            $('.box2').hover(function(){
+//                $('.box2').text('hover O')
+//            },function(){
+//                $('.box2').text('hover X')
+//            })
+            
+            $('.box1').hover(function(){
+                $('.box1').text('enter')
+            },function(){
+                $('.box1').text('leave')
+            })
+            
+            
+            
+            
+            
+            
+            
+            // on
+            // 여러개의 동작에 결과물이 하나일 경우 씀 - 동일한 fucntion -> 1개
+            // .box:hover, .box:focus { color: red; }
+            // = $('a').on('동작1mouseover 동작2focus 동작3',function(){    })
+            
+            
+            // $('a').click(function(){  })
+            // = $('a').on('click',function(){   })
+            /*
+            $('.box3').on('click mouseover',function(){
+                console.log('click mouseover')
+            })
+            $('.box3').on('mouseout',function(){
+                console.log('mouseout')
+            })
+            */
+            
+            
+            
+            
+            
+            // 추가
+            /*
+            $('p').css('속성','속성값')
+            $('p').css({'속성':'속성값','속성':'속성값'})
+            $('.box4').on ( '동작',function(){ })
+            */
+            // $('.box4').on({ '동작':function(){} , '동작':function(){} })
+            // $('.box4').on({ 'click mouseover':function(){} , 'mouseout':function(){}}) - 엔터가능
+            $('.box4').on({
+                'click mouseover':function(){
+                    console.log('click mouseover')
+                },
+                'mouseout':function(){
+                    console.log('mouseout')
+                }
+            })
+            
+            
+        })
+    </script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

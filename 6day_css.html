@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: #ddd;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <div class="box4"></div>
+    
+    <script src="js/jquery-3.5.1.js"></script>
+    <script>
+        // $(document).ready(function(){  })
+        $(function(){
+            // width:300px; background-color:gray;
+            
+            // box1
+            $('.box1').css('width',300)
+            $('.box1').css('background-color','gray')
+            
+            // 제이쿼리의 문법
+            // $('선택자').css('속성','속성값') - 속성을 1개만 변경
+            // $('선택자').css({ '속성':'속성값' , '속성':'속성값' }) - 속성을 여러개 변경
+            
+            $('.box2').css({ 'width':300 , 'background-color':'gray' })
+            
+            // 중괄호 편한 점 - 엔터도 쓸 수 있음
+            $('.box3').css({
+                'width':300 ,
+                'background-color':'gray'
+            })
+            
+            // ''없이 width 쓸 수 있음
+            // -대신 띄어쓰기 없이 두번째 있는 첫번째 글자를 대문자로 쓰기(낙타표기법)
+            $('.box4').css({
+                width:300 ,
+                backgroundColor:'gray',
+                borderRight:'5px solid #000'
+            })
+            
+        })
+    </script>
+</body>
+</html>

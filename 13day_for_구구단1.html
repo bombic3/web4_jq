@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>for 구구단 만들기1</title>
+</head>
+<body>
+	<script>
+		for(i=1; i<=9; i++){
+			document.write(i*i +'<br/>')
+		} // 같은 숫자끼리만 곱해지게 됨
+		
+		document.write('<hr/>')
+		
+		// 중첩 for문 사용. 보통 i 다음 j 씀
+		// for(i=1; i<=9; i++){
+		// 	for(j=1; j<=9; j++){
+		//		document.write(i*j +'<br/>')
+		//	}
+		//}
+		
+		for(i=1; i<=9; i++){
+			for(j=1; j<=9; j++){
+				document.write(i+' * '+j+' = '+i*j+'<br/>')
+				// document.write('<hr/>')
+			}
+			document.write('<hr/>')
+		}
+	</script>
+</body>
+</html>

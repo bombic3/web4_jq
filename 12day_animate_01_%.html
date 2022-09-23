@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>animate_01_%</title>
+    <style>
+        * { margin: 0; padding: 0;}
+        html,body { height: 100%;}
+        #left {
+            width: 200px;
+            height: 100%;
+            background-color: gray;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="left"></div>
+    
+    <script src="js/jquery-3.5.1.js"></script>
+    <script>
+        // 1. left를 클릭했을 때 200 이라면 95%까지 늘리고, 아니라면 다시 200으로 돌아가라
+        $(function(){
+            var left_o = $('#left').width()
+            
+            $('#left').click(function(){
+                var left_w = $('#left').width()
+                
+                if( left_w == 200 ){
+                    $('#left').animate({width:'95%'})
+                } else{
+                    $('#left').stop().animate({width: left_o}) // 돌아오는 ani에 .stop() 걸어두는 것이 좋음. 앞으로 많이 쓰임
+                }
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>scroll</title>
+	<style>
+		* {margin: 0; padding: 0;}
+		ul,ol,li { list-style: none}
+		a {text-decoration: none; }
+		
+		.nav_wrap {
+			background-color: #333;
+			position: fixed;
+			left: 0;
+			top: 0;
+			width: 100%;
+			z-index: 100;
+		}
+		.gnb {
+			width: 400px;
+			height: 40px;
+			margin: 0 auto;
+		}
+		.gnb li {
+			float: left;
+			width: 100px;
+		}
+		.gnb li a {
+			display: block;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+			color: #fff;
+		}
+		.page {
+			height: 1000px;
+			line-height: 1000px;
+			text-align: center;
+			font-size: 100px;
+		}
+		.page1 { background-color: #ddd; }
+		.page2 { background-color: #aaa; }
+		.page3 { background-color: #777; }
+		.page4 { background-color: #555; }
+	</style>
+</head>
+<body>
+	<nav class="nav_wrap">
+		<ul class="gnb">
+			<li><a href="#page1">page1</a></li>
+			<li><a href="#page2">page2</a></li>
+			<li><a href="#page3">page3</a></li>
+			<li><a href="#page4">page4</a></li>
+		</ul>
+	</nav>
+	
+	<div class="page page1" id="page1">page1</div>
+	<div class="page page2" id="page2">page2</div>
+	<div class="page page3" id="page3">page3</div>
+	<div class="page page4" id="page4">page4</div>
+	
+	<!-- http://github.com/jquery 제이쿼리 공식 자료 사이트 mousewheel 다운받아서 압출풀고 두가지 중에 한가지 연결 -->
+	<!-- 개별적인건 아래에 공통적인건 위에 script 쓰기 -->
+	<script src="js/jquery-3.5.1.js"></script>
+	<script src="js/jquery.mousewheel.js"></script>
+	<script>
+		$(function(){
+			// a를 클릭했을 때, 해당하는 위치로 이동
+			$('.gnb li a').click(function(){
+				var link_id = $(this).attr('href')
+				n = $(link_id).offset().top
+				$('html,body').animate({scrollTop:n})
+			})
+			
+			// 스크롤이 어떠한 값 이상으로 움직였을 때 .nav_wrap의 backgroundColor를 바꿔라
+			$(window).scroll(function(){
+				var win_top = $(window).scrollTop()
+				if( win_top >= 1000 ){
+					$('.nav_wrap').css({backgroundColor:'gold'})
+				} else {
+					$('.nav_wrap').css({backgroundColor:'#333'})
+				}
+			})
+			
+			// 마우스 휠을 체크해서 한번 움직일 때마다 좌표값만큼 이동하여라
+			$('.page').mousewheel(function(event,delta){
+				if( $('html,body').is(':animated') ){
+					return false;
+				}
+				if( delta > 0 ){
+					var prev = $(this).prev().offset().top
+					$('html,body').animate({scrollTop:prev})
+				} else {
+					var next = $(this).next().offset().top
+					if( next > 0 ){
+						$('html,body').animate({scrollTop: next })
+					}
+				}
+			})
+			
+		})
+	</script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</body>
+</html>

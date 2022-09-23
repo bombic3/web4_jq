@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>animate3.02.if문</title>
+    <style>
+        * { margin: 0; padding: 0;}
+        html,body { height: 100%;}
+        #left {
+            width: 200px;
+            height: 100%;
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div id="left"></div>
+    
+    <script src="js/jquery-3.5.1.js"></script>
+    <script>
+        // left를 클릭했을 때, left의 width가 200이라면 95%까지 늘리고, 아니면 다시 width가 200이 되어라
+        $(function(){
+            $('#left').click(function(){
+                if( $('#left').width() == 200 ){
+                    // $('#left').css('width') == '200px'
+                    $('#left').animate({width:'95%'})//#left대신 this써도 됨
+                } else {
+                    $('#left').stop.animate({width:200})
+                    // .stop 앞에 움직이는거 멈추고 내걸로 돌아와라 > 더블클릭했을 때 다 늘어났다가 줄어들고(실행이 다 되고)나서 다시 실행이 되지만 stop걸면 다시 바로 실행 됨
+                }
+            })
+        })
+    </script>
+</body>
+</html>

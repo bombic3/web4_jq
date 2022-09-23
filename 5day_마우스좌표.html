@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>마우스좌표</title>
+	<style>
+		* {margin: 0; padding: 0;}
+		html, body { height: 100%; }
+	</style>
+</head>
+<body>
+	<script src="js/jquery-3.5.1.js"></script>
+	<script>
+		// 0. body에서 마우스를 움직였을 때, body의 배경색을 변경하여라
+		// 1. mouse의 좌표를 구하여 body에 표시 (마우스의 정보가 필요할 때만 event적기)
+		$(document).ready(function(){
+			$('body').mousemove(function(event){
+				// $('body').css('background-color','pink')
+				// console.log(event)
+				var x = event.clientX // 마우스의 x좌표
+				var y = event.clientY // 마우스의 y좌표
+				
+				// 나타내라 =  text, html
+				// text는 태그를 인지하지 못한다 html 사용하려면 이렇게
+				// $('body').html(x+'<br />'+y) - x,y좌표 위 아래로 나옴
+				// 문자데이터 ,를 따옴표로 감싸고 앞 뒤로 +
+				// $('body').text(x+','+y) - x,y좌표 ,양옆으로 나옴
+				// '' 안에서 띄어쓰기는 인지가 됨 - 그대로 나타남
+				$('body').html('x좌표값 : '+x+'<br />Y좌표값 : '+y)
+			})
+		// $(document).ready(function(){
+			// $('body').mousemove(function(이름똑같이){
+				// $('body').css('background-color','pink')
+				// console.log(event) - 물결흐르듯이 F12에서 계속 좌표 정보가 생김
+				// var x = 이름똑같이.clientX // 마우스의 x좌표
+		//	})
+		})
+		
+		
+		$(document).ready(function(){
+			$('body').mousemove(function(event){
+				var x = event.clientX
+				var y = event.clientY
+				$('body').html('x좌표값 : '+x+'<br />y좌표값 : '+y)
+			})
+			
+		})
+	</script>
+</body>
+</html>

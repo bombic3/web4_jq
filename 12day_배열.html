@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>배열</title>
+</head>
+<body>
+   <!--
+    <ul>
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">PROFILE</a></li>
+        <li><a href="#">GALLERY</a></li>
+        <li><a href="#">BOARD</a></li>
+        <li><a href="#">ETC</a></li>
+    </ul>
+    -->
+    
+    <!-- 자바스크립트에 배열 넣기 -->
+    <script>
+        // 배열 : 하나의 변수에 여러개의 데이터를 저장
+        // var title = 'HOME','PROFILE','GALLERY','BOARD','ETC' 불가능
+        // 배열
+        var title = new Array('HOME','PROFILE','GALLERY','BOARD','ETC') // new Array 붙여주고(괄호로 묶기)
+        document.write(title) // 다 나타남
+        document.write(title[1]) // 0부터 세기 때문에 두번째 거 불러오는 거는 1
+    </script>
+    
+    <!-- 자바스크립트에 전부 넣기 : 1부터 5까지 5개가 나타남 -->
+    <ul>
+        <script>
+            var title = new Array('HOME','PROFILE','GALLERY','BOARD','ETC')
+            for(i=1; i<=5; i++){ // i=1; i<=5; i++
+                document.write('<li><a href="#">'+title+'</a></li>')
+            }
+        </script>
+    </ul>
+    
+    
+    <!-- 자바스크립트에 배열 넣기 -->
+    <ul>
+        <script>
+            var title = new Array('HOME','PROFILE','GALLERY','BOARD','ETC')
+            for(i=1; i<=5; i++){ // 0부터 세기 때문에 title[i-1]로 써야함
+                document.write('<li><a href="#">'+title[i-1]+'</a></li>')
+            }
+        </script>
+    </ul>
+    
+    <ul>
+        <script>
+            var title = new Array('HOME','PROFILE','GALLERY','BOARD','ETC')
+            for(i=0; i<=4; i++){ // 0부터 세기 때문에
+                document.write('<li><a href="#">'+title[i]+'</a></li>')
+            }
+        </script>
+    </ul>
+    
+    
+    
+    <ul>
+        <script>
+            for(i in title){
+                document.write('<li><a href="#">'+title[i]+'</a></li>')
+            } // 네이밍이 현재의 ul 밖에서 네이밍이 됐는데 됨?
+            // 숫자가 아닌 네이밍 된 title의 내용을 그대로 불러오겠다는 뜻
+        </script>
+    </ul>
+    
+    
+    
+    
+    
+    
+</body>
+</html>

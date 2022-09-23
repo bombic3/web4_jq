@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>animate3.03.px</title>
+    <style>
+        * { margin: 0; padding: 0;}
+        html,body { height: 100%;}
+        #left {
+            width: 200px;
+            height: 100%;
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div id="left"></div>
+    
+    <script src="js/jquery-3.5.1.js"></script>
+    <script>
+        // left를 클릭했을 때, left의 width가 현재 값과 같은 200이라면 전체브라우저에서 50px 뺀만큼 늘리고, 아니면 다시 width가 현재 값인 200이 되어라
+        $(function(){
+            var left_ow = $('#left').width()
+            
+            $('#left').click(function(){
+                var left_w = $('#left').width()
+                var win_w = $(window).width()
+                
+                if( left_w == left_ow ){
+                    $('#left').animate({width: win_w -50})
+                } else{
+                    $('#left').animate({width: left_ow })
+                                       }
+            })
+        })
+    </script>
+</body>
+</html>

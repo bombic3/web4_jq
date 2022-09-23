@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>06.변수2</title>
+</head>
+<body>
+	<script src="js/jquery-3.5.1.js"></script>
+	<script>
+		
+		// 현재 브라우저의 width값을 체크하여 body에 표시
+		// $(window) = 현재 브라우저
+		// .css('width') = ,300 수치 안 적고 그냥 'width'면 체크하여라
+		// .width(300) = 변경하여라
+		// .width() = 체크하여라
+		// $(window).width()
+		
+		$(document).ready(function(){
+			
+			var win_w = $(window).width()
+			$('body').text(win_w)
+			
+			// $('body').text(   $(window).width()   )
+			
+		})
+	</script>
+</body>
+</html>

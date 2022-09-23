@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>animation</title>
+    <style>
+        img {display: none;}
+        .box {
+            width: 123px;
+            height: 179px;
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <button id="test">test</button>
+    <button id="show">show</button>
+    <button id="hide">hide</button>
+    <button id="slideDown">slideDown</button>
+    <button id="slideUp">slideUp</button>
+    <button id="fadeIn">fadeIn</button>
+    <button id="fadeOut">fadeOut</button>
+    <p><img src="img/mov1.jpg" alt="" width="123" height="179"></p>
+    <div class="box"></div>
+    
+    <script src="js/jquery-3.5.1.js"></script>
+    <script>
+        // 1초 == 1000밀리세컨드
+        // 원래 img 자체에 애니메이션 주면 안 됨. 
+        // 두번째 앞글자 대문자로 쓰기 (낙타표기법)
+        // 1. test를 클릭하면 이미지가 나타났다가 사라지는 효과가 한번에 되도록 설정
+        // 2. img가 나타난 후에 box가 사라지도록 설정
+        // 콜백함수 : 현재 명령이 끝난 뒤에 다음 함수를 실행하여라 - 타겟이 다를 경우 동시 실행 되는 것을 막아줌
+        $(function(){
+            // test
+            $('#test').click(function(){
+                // $('img').show(1000)
+                // $('img').hide(1000)
+                // $('.box').hide(1000) // 타겟이 다르면 동시 실행 됨 box랑 img랑 같이 사라짐
+                // 콜백함수 사용
+                $('img').show(1000,function(){
+                    $('.box').hide(1000)
+                })
+            })
+            
+            
+            
+            $('#show').click(function(){
+                // $('img').css({display:'block'})
+                $('img').show(1000,'swing')
+                // 왼쪽 위에서 나타남. 안 예뻐서 잘 사용 안함.
+                // 1초 = 1000 안쓰고 () 이렇게만 두면 속도 0
+                // swing(기본값) : 점점 느렸다가 가속도 붙는 애
+                // linear : 일정한 속도 
+            })
+            
+            $('#hide').click(function(){
+                // $('img').css({display:'none'})
+                $('img').hide(1000)
+            })
+                
+            $('#slideDown').click(function(){
+                $('img').slideDown()
+            })
+            
+            $('#slideUp').click(function(){
+                $('img').slideUp() // 
+            })
+            
+            $('#fadeIn').click(function(){
+                $('img').fadeIn()
+            })
+            
+            $('#fadeOut').click(function(){
+                $('img').fadeOut()
+            })
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        })
+    </script>
+</body>
+</html>

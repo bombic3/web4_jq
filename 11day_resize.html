@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>resize</title>
+</head>
+<body>
+    
+    <script src="js/jquery-3.5.1.js"></script>
+    <script>
+        //브라우저의 width를 체크하여 body에 표시하여라
+        $(function(){
+            // var win_w = $(window).width()
+            // $('body').text( win_w )
+            // function에 바로 쓰는 것은 새로고침 해야지만 실행하겠다는 뜻
+            
+            // resize : 실시간으로 반응하여 나타나게 함
+            $(window).resize(function(){
+                var win_w = $(window).width()
+                $('body').text( win_w )
+            })
+            
+            // if( win_w >= 768 ){ }   > 나중에 반응형 할때 씀
+            
+            $(window).resize()
+            // 새로고침 하자마자 시작하여라
+            // resize 쓸 때 필수
+        })
+    </script>
+</body>
+</html>

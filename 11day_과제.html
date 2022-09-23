@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>과제</title>
+	<style>
+		* {margin:0; padding:0;}
+		ul,ol,li {list-style:none;}
+		a {text-decoration:none;}
+		img {vertical-align:middle;}
+		
+		.wrap {
+			width:400px;
+			margin:0 auto;
+			position:relative;
+		}
+		.img_wrap {
+			border:5px solid #000;
+			width:390px;
+			height:567px;
+			position:relative;
+			overflow:hidden;
+		}
+		.img_wrap img {
+			width:100%;
+		}
+		p {
+			height:40px;
+			line-height:40px;
+			margin:5px 0;
+			background-color:#333;
+			color:#fff;
+			text-align:center;
+		}
+		.list {}
+		.list li {
+			overflow:hidden;
+			width:90px;
+			height:90px;
+			float:left;
+			border:5px solid #000;
+		}
+		.list li.on {
+			border-color:gold;
+		} 
+		button {
+			position:absolute;
+			top:250px;
+			width:60px;
+			height:60px;
+			background-color:#333;
+			color:#fff;
+			border-radius:5px;
+			border:none;
+			z-index:10;
+		}
+		.prev {
+			left:-70px;
+		}
+		.next {
+			right:-70px;
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<button class="prev">PREV</button>
+		<button class="next">NEXT</button>
+		<div class="img_wrap">
+			<img src="img/mov1.jpg" alt="">
+		</div>
+		<p>조이</p>
+		<ul class="list">
+			<li><a href="img/mov1.jpg"><img src="img/mov1.jpg" alt="조이"></a></li>
+			<li><a href="img/mov2.jpg"><img src="img/mov2.jpg" alt="널 기다리며"></a></li>
+			<li><a href="img/mov3.jpg"><img src="img/mov3.jpg" alt="귀향"></a></li>
+			<li><a href="img/mov4.jpg"><img src="img/mov4.jpg" alt="주토피아"></a></li>
+		</ul>
+	</div>
+	
+	<!-- <li><a href="원본이미지 경로"><img src="썸네일이미지 경로"></a></li> -->
+	
+	<script src="js/jquery-3.5.1.js"></script>
+	<script>
+        // 1.  썸네일을 클릭
+        // - (이미지 이름이 다를 경우 - href값을 사용해서 경로를 변경)
+        // - ******a를 클릭했을 때 2번 이미지가 나와라******(어떤 작업을 하던간에 제일 먼저 해야 될 것)
+        // - 클릭한 썸네일에 관련된 이미가 나와라
+        
+        // 2. text
+        // - a를 클릭했을 때 p의 텍스트를 변경(img의 alt값 사용)
+        
+        // 3. next
+        // - next를 클릭했을 때 2번 이미지가 나오도록 설정
+        // - 변수처리 + 증가연산자
+        // - if문을 사용하여 마지막에서 다시 처음으로 이동되도록 설정
+        
+        // 4. prev
+        
+        // 5. n값 변경(새로고침후 3번째거 눌렀을 때 next,prev버튼 누르면 n이 1이라서 제대로 안 되는 것 보수)
+        // - 썸네일을 클릭했을 때 순서값을 구하여 n값으로 설정
+        
+        // 6. text
+        // - next, prev를 클릭했을 때 p의 텍스트가 변경
+        
+        $(function(){
+            // 썸네일
+            $('.list li a').click(function(){
+                var a_href = $(this).attr('href')
+                $('.img_wrap img').attr('src',a_href)
+                
+                var img_alt = $(this).find('img').attr('alt')
+                //this는 a이기 때문에 a 안의 img의 alt값 이므로 find or children 사용
+                $('p').text( img_alt )
+                
+                n = $(this).parent().index() + 1
+                // 클릭한 것이 a이기 때문에 a를 감싸고 있는 li의 index값을 구해야 함
+                // 0부터 세기 때문에 +1 붙여줘서 순서 맞춰주기
+                
+                return false;
+            })
+            
+            // next
+            var n = 1
+            $('.next').click(function(){
+                n++ // 증가연산자(초기값 필수 밖에 써줘야 함)
+                // if문은 n++와 function값 사이에 써주는 것이 좋다
+                if( n == 5 ){ // n > 4
+                    n = 1
+                }
+                $('.img_wrap img').attr('src','img/mov'+n+'.jpg')
+                
+                //text
+                var img_txt = $('.list li a img').eq(n-1).attr('alt')
+                //두번째 나와라 먼저 만들기. 두번째 것은 eq(1)이기 때문에 n값은 n-1로 쓰기 (0부터 세서)
+                $('p').text( img_txt )
+            })
+            
+            // prev
+            $('.prev').click(function(){
+                n--
+                if( n == 0 ){ // n < 1
+                    n = 4
+                }
+                $('.img_wrap img').attr('src','img/mov'+n+'.jpg')
+            })
+            
+            // text
+            $(function(){
+                
+            })
+            
+        })
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

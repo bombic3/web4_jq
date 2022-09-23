@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>gallery1</title>
+</head>
+<body>
+    <ul>
+        <li><a href="#">영화1</a></li>
+        <li><a href="#">영화2</a></li>
+        <li><a href="#">영화3</a></li>
+        <li><a href="#">영화4</a></li>
+        <li><a href="#">영화5</a></li>
+    </ul>
+    
+    <p><img src="img/img.jpeg" alt=""></p>
+    
+    <script src="js/jquery-3.5.1.js"></script>
+    <script>
+        // 2번째 a를 클릭했을 때, p의 img가 img2로 변경되도록 설정
+        $('a').eq(0).click(function(){
+            $('img').attr('src' , 'img/img.jpg')
+        })
+        $('a').eq(1).click(function(){
+            $('img').attr('src','img/img2.jpeg')
+        })
+    </script>
+</body>
+</html>

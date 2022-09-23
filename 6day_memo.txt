@@ -1,0 +1,11 @@
+[css] - width예문 다른 것 다 동일
+$('p').css('width',100) - width를 변경
+$('p').width(100) - width를 변경
+$('p').css('width') - width 값을 체크(값을 가지고 와라)
+$('p').width()- width 값을 체크(값을 가지고 와라)
+
+[text]
+$('p').text('내용') - text를 변경
+$('p').text('') - text를 지워라 (비워라)
+$('p').text(' ') - 띄어쓰기를 입력하라
+$('p').text() - text를 체크하여라(값을 가지고 와라. 뭐라고 써있어? 갖고 와 봐)

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>animate_02_px</title>
+    <style>
+        * { margin: 0; padding: 0;}
+        html,body { height: 100%;}
+        #left {
+            width: 200px;
+            height: 100%;
+            background-color: gray;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="left"></div>
+    
+    <script src="js/jquery-3.5.1.js"></script>
+    <script>
+        // 2. left가 200이라면 전체 브라우저 사이즈에서 50px뻰 만큼 늘어나고 아니면 다시 줄어들어라
+        
+        $(function(){
+            var left_o = $('#left').width()
+            
+            $('#left').click(function(){
+                var left_w = $('#left').width()
+                var win_w = $(window).width() // 전체 브라우저 사이즈를 px로 체크
+                
+                if( left_w == 200 ){
+                    $('#left').animate({width: win_w - 50})
+                } else{
+                    $('#left').stop().animate({width: left_o}) // 돌아오는 ani에 .stop() 걸어두는 것이 좋음. 앞으로 많이 쓰임
+                }
+            })
+        })
+    </script>
+</body>
+</html>

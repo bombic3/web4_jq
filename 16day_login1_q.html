@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>login1</title>
+</head>
+<body>
+	<p>
+		<label for="uid">아이디</label>
+		<input type="text" id="uid" value="ID">
+		<!-- placeholder="ID" 자동으로 사라지는 기능 있지만 value값 응용해서 써보기 위해 하는 것 -->
+	</p>
+	
+	<p>
+		<label for="upw">비밀번호</label>
+		<input type="text" id="upw" value="PW">
+	</p>
+	
+	
+	<script src="js/jquery-3.5.1.js"></script>
+	<script>
+		// 태그에 있는 내용 = text / form 태그에 있는 내용 = value
+		// .text('내용') : 내용을 변경하여라
+		// .text('') : 내용을 비워라/지워라
+		// .text() : 내용을 가지고 와라
+		
+		// .val('내용') : 내용을 변경하여라
+		// .val('') : 내용을 비워라/지워라
+		// .val() : 내용을 가지고 와라
+		
+		// #uid에 focus되었을 때, value값이 'ID'라는 해당 value를 지워라
+		// #uid에서 blur되었을 때, value값이 비어있으며 다시 'ID'라고 표시
+		$(function(){
+			$('#uid').focus(function(){
+				$('input#uid').attr('value','')
+			})
+			
+			$('#uid').blur(function(){
+				$('input#uid').attr('value','ID')
+			})
+			
+			$('#upw').focus(function(){
+				$('input#upw').attr('value','')
+			})
+			
+			$('#upw').blur(function(){
+				$('input#upw').attr('value','PW')
+			})
+			
+		})
+	</script>
+</body>
+</html>

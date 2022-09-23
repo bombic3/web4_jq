@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>animate02</title>
+	<style>
+		* { margin: 0; padding: 0;}
+		.box {
+			width: 100px;
+			height: 100px;
+			background-color: gray;
+			margin: 10px;
+		}
+        
+        button {
+            width: 200px;
+            height: 40px;
+            margin: 10px;
+            cursor: pointer;
+        }
+	</style>
+</head>
+<body>
+    <button class="stop">정지</button>
+    <button class="play">재생</button>
+    
+	<div class="box"></div>
+	
+	<script src="js/jquery-3.5.1.js"></script>
+	<script>
+		// 콜백함수 사용해서 box가 1초동안 500px 오른쪽으로 이동하고, 1초동안 머물러 있다가 다시 처음으로 1초도안 이동
+		// 반복설정
+		// setInterval : n초마다 n번씩 반복실행하도록 설정
+        // clearInterval : 설정한 setInterval을 지울 때 사용
+		$(function(){
+			/*
+			setInterval(function(){
+				ani()
+			},3000) // 3초 뒤에 3초마다 반복 실행
+            
+            = setInterval(ani,3000)
+			*/
+            
+			var rolling = setInterval(ani,3000) // 함수만 불러올 때 이렇게 간단하게 적을 수 있음
+            // clearInterval할 때 무슨 setInterval을 clear할 건지 이름 지정해주기
+            
+			ani() // 새로고침 하자마자 1번 실행, setInterval과 순서 상관없음
+            // 밖에 있어서 이걸 없애면 재생 눌러야지만 실행됨.
+			
+			// ani라는 함수를 만들기(= function ani(){} ) - box가 움직이는 애니메이션을 반복적으로 적어야 하기 때문
+			// 변수 : 결과값 저장. 이름지정,네이밍 (var)
+			// 함수 : 동작,행위 자체를 저장. 반복설정( = function ani(){} )
+			function ani(){
+				$('.box').animate({marginLeft:500},1000,function(){
+					$('.box').delay(1000).animate({marginLeft:10},1000)
+				})
+			}
+            
+            $('.stop').click(function(){
+                clearInterval(rolling)
+            })
+            $('.play').click(function(){
+                rolling = setInterval(ani,3000)
+                // rolling .stop에서 사용해서 없어진 것. 지역변수라서. var쓰면 안 되고(var만 안 붙이면 됨) rolling = setInterval 그대로 써주기
+                ani()
+                //3초 뒤에 실행되기 때문에 써주는 것. 많이 쓰는 건 네임지정 해주기
+            })
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>slider</title>
+	<style>
+		* {margin:0; padding:0;}
+		ul,ol,li {list-style:none;}
+		
+		.slider {
+			width:400px;
+			height:580px;
+			margin:0 auto;
+			position:relative;
+			overflow:hidden;
+		}
+		.list {
+			width:2000px;
+			position:absolute;
+			left:0;
+			top:0;
+		}
+		.list li {float:left; width:400px;}
+		.list li img {
+			width:100%;
+		}
+		.slider > button {
+			position:absolute;
+			top:50%;
+			transform:translateY(-50%);
+			z-index:10;
+			width:60px;
+			height:60px;
+			border-radius:10px;
+			cursor:pointer;
+		}
+		.slider .prev {left:10px;}
+		.slider .next {right:10px;}
+		
+		.indi {
+			position:absolute;
+			left:0;
+			bottom:10px;
+			z-index:10;
+			width:100%;
+			text-align:center;
+		}
+		.indi li {
+			display:inline-block;
+			width:10px;
+			height:10px;
+			border:2px solid #fff;
+			border-radius:10px;
+			text-indent:-9999px;
+			cursor:pointer;
+		}
+		.indi li.on {
+			background-color:#fff;
+		}
+	</style>
+</head>
+<body>
+	<div class="slider">
+		<button class="prev">PREV</button>
+		<button class="next">NEXT</button>
+		
+		<ul class="list">
+			<li><a href="#"><img src="img/mov1.jpg" alt=""></a></li>
+			<li><a href="#"><img src="img/mov2.jpg" alt=""></a></li>
+			<li><a href="#"><img src="img/mov3.jpg" alt=""></a></li>
+			<li><a href="#"><img src="img/mov4.jpg" alt=""></a></li>
+			<li><a href="#"><img src="img/mov1.jpg" alt=""></a></li>
+		</ul>
+		
+		<div class="indi">
+			<ul>
+				<li class="on">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ul>
+		</div>
+	</div>
+	
+	<script src="js/jquery-3.5.1.js"></script>
+	<script>
+		// 1. next
+		// - 2번 이미지가 나오도록 설정
+		// - 변수를 찾아서 다음으로 계속 이동되도록 설정
+		// - if문을 사용하여 마지막에서 다시 처음으로 이동되도록 설정
+		// - css를 활용해서 자연스럽게 연결되도록 설정
+		// 2. prev
+		
+		// 3. indi li
+		// - 클릭한 li에만 on이 붙도록 설정
+		// - li를 클릭했을 때 해당하는 위치로 이동
+		// - next,prev
+		
+		// 4. 자동롤링
+		// - 마우스를 올렸을 때 롤링을 멈추고 벗어나면 다시 실행하여라
+		$(function(){
+			
+			
+			var rolling = setInterval(function(){
+				$('.next').click()
+			},2000)
+			
+			$('.slider').mouseover(function(){
+				clearInterval(rolling)
+			})
+			$('.slider').mouseout(function(){
+				rolling = setInterval(function(){
+					$('.next').click()
+				},2000)
+			})
+			
+			
+			$('.indi li').click(function(){
+				$('.indi li').removeClass('on')
+				$(this).addClass('on')
+				
+				n = $(this).index()
+				$('.list').stop().animate({left:-400 * n})
+			})
+			
+			
+			// next
+			var n = 0
+			$('.next').click(function(){
+				n++
+				if(n == 5){  // n > 4
+					n = 1  // 이동할 타겟
+					$('.list').css({left:-400 * 0})  // 마지막과 같은 이미지
+				}
+				$('.list').stop().animate({left:-400 * n})
+				
+				$('.indi li').removeClass('on')
+				$('.indi li').eq(n).addClass('on')
+				if(n == 4){
+					$('.indi li:first').addClass('on')
+				}
+			})
+			
+			$('.prev').click(function(){
+				n--
+				if(n == -1 ){
+					n = 3
+					$('.list').css({left:-400 * 4 })
+				}
+				$('.list').stop().animate({left:-400 * n})
+				
+				$('.indi li').removeClass('on')
+				$('.indi li').eq(n).addClass('on')
+			})
+			
+			
+			
+		})
+	</script>
+	
+</body>
+</html>
+
+
+
+
+
+
+
+

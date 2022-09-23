@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>layout3</title>
+    <link href="css/18day_style.css" rel="stylesheet">
+    <script src="js/jquery-3.5.1.js"></script>
+    <script>
+		$(function(){
+			$(window).scroll(function(){ // 스크롤 했을 때 ~ 하여라
+				var win_top = $(window).scrollTop() // 스크롤의 위치 구하기
+				var win_h = $(window).height() // 브라우저의 높이
+				var wrap3_top = $('.wrap3').offset().top // wrap3의 위치 구하기
+				
+				$('.wrap2_inner div').each(function(){ // 자동으로 각자에 ~적용할거임
+					var box_top = $(this).offset().top // 각 div의 좌표값
+					if(win_top >= box_top - 300 ){ // 지금 스크롤이 각자 좌표값에 300가까이 먼저 도달하면
+						$(this).addClass('on') // 각자 알아서 나와
+					}
+				})
+				
+				if( win_top >= wrap3_top - 400 ){
+					$('.wrap3_inner div').addClass('on')
+				} else if( win_top < wrap3_top - win_h ){ // 현재 스크롤 좌표값이 wrap3의 위치보다 브라우저의 크기만큼 뺀 값보다 작을 때 ( 완전히 벗어났을 때) 없어짐
+					$('.wrap3_inner div').removeClass('on')
+				}
+				
+				/* 내가 한 것..
+				$('.wrap3_inner div').each(function(){
+					var box_left = $(this).offset().top
+					if(win_top >= box_left - 300 ){
+						$(this).addClass('on')
+					}
+				})
+				*/
+				
+				/*
+				// 스크롤 내린 값이 400 이상 일때 클래스 .on을 붙이겠다
+				if(win_top >= 400){ // 첫번째만 올라와
+					$('.wrap2_inner div').eq(0).addClass('on') 
+				}
+				if(win_top >= 500){ // 두번째 올라와
+					$('.wrap2_inner div').eq(1).addClass('on') 
+				}
+				if(win_top >= 600){ // 세번째 올라와 > 노가다
+					$('.wrap2_inner div').eq(2).addClass('on') 
+				}
+				*/
+				
+			})
+		})
+	</script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="wrap1">
+            parallax
+        </div>
+        <div class="wrap2">
+            <div class="wrap2_inner clear">
+                <div class="box1">
+                    <strong>box</strong>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo maxime quo libero atque recusandae, nam odio nihil veniam rem aliquam iste sed voluptas accusamus ratione assumenda alias temporibus commodi maiores.</p>
+                </div>
+                <div class="box2">
+                    <strong>box</strong>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo maxime quo libero atque recusandae, nam odio nihil veniam rem aliquam iste sed voluptas accusamus ratione assumenda alias temporibus commodi maiores.</p>
+                </div>
+                <div class="box3">
+                    <strong>box</strong>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo maxime quo libero atque recusandae, nam odio nihil veniam rem aliquam iste sed voluptas accusamus ratione assumenda alias temporibus commodi maiores.</p>
+                </div>
+                <div class="box4">
+                    <strong>box</strong>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo maxime quo libero atque recusandae, nam odio nihil veniam rem aliquam iste sed voluptas accusamus ratione assumenda alias temporibus commodi maiores.</p>
+                </div>
+            </div>
+            <button>wrap2</button>
+        </div>
+        
+        <div class="wrap3">
+            <div class="wrap3_inner clear">
+                <div class="box1">
+                    <span>box1</span>
+                </div>
+                <div class="box2">
+                    <span>box2</span>
+                </div>
+                <div class="box3">
+                    <span>box3</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

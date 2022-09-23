@@ -1,0 +1,3 @@
+[attr] - src, href, alt, title...
+$('img').attr('src','내용') - 속성을 변경
+$('img').attr('src') - 속성을 체크하여라

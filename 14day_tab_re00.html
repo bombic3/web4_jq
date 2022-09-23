@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>tab</title>
+	<style>
+		* {margin: 0; padding: 0;}
+		ul,ol,li {list-style: none;}
+		a { text-decoration: none;}
+		
+		.wrap {
+			width: 300px;
+			margin: 100px auto;
+		}
+		
+		.tab {
+			height: 40px;
+		}
+		.tab li {
+			float: left;
+		}
+		.tab li a {
+			display: block;
+			height: 40px;
+			line-height: 40px;
+			padding: 0 20px;
+			background-color: #333;
+			color: #fff;
+		}
+		/*
+		.active {
+			background-color: gold;
+			color: #333;
+		} 10점임 . .tab li a = 12점이라서 색상 안나오는 것임
+		밑에 처럼 써줘야 됨
+		.tab li .active
+		*/
+		
+		.tab li .active {
+			background-color: gold;
+			color: #333;
+		}
+		.con {
+			height: 300px;
+			line-height: 300px;
+			background-color: #ddd;
+			text-align: center;
+			font-size: 30px;
+		}
+		/* 제이쿼리는 밀리기 때문에 css 에 써주는 것이 좋다.
+		제이쿼리로 했을 때 새로고침 막 하면 일러스트창도 보임
+		.con {display: none;}
+		.con:first-of-type {display: block;}
+		*/
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<ul class="tab">
+			<li><a href="#photo" class="active">menu1</a></li>
+			<li><a href="#illu">menu2</a></li>
+			<li><a href="#web">menu3</a></li>
+		</ul>
+		
+		<div class="con" id="photo">포토샵</div>
+		<div class="con" id="illu">일러스트</div>
+		<div class="con" id="web">웹사이트</div>
+	</div>
+	
+	<script src="js/jquery-3.5.1.js"></script>
+	<script>
+		// 1. 첫번째 con을 제외한 나머지를 보이지 않게 설정
+		// 2. a를 클릭했을 때, 클릭한 a와 관련된 영역이 나와라
+		// 2-1 : 클릭한 a의 순서값으로 설정하는 방식
+		// 2-2 : con에 이름을 설정하여(id 사용) 정확하게 타겟을 지정하는 방법
+		//		: 클릭한 a의 href값을 사용하여 해당하는 con이 표시되도록 설정
+		//		  (얘를 더 많이 씀.나중에 순서 바뀌는 경우가 있어서)
+		// 3. 클릭한 a만 스타일이 변경되도록 설정
+		
+		$(function(){
+			$('.con:not(:first)').hide()
+			$('a').click(function(){
+				var link = $(this).attr('href')
+				
+				$('.con').hide()
+				$(link).show()
+				
+				$('a').removeClass('active')
+				$(this).addClass('active')
+			})
+			
+		})
+	</script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</body>
+</html>

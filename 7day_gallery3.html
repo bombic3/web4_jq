@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>gallery3</title>
+</head>
+<body>
+    <p><img src="img/img1.jpeg" alt=""></p>
+    <button class="prev">이전</button>
+    <button class="next">다음</button>
+    
+    <script src="js/jquery-3.5.1.js"></script>
+    <script>
+        // *** 어떤 gallery를 하던 간에 첫번 째로 next를 먼저 해야 함 ***
+        
+        // 1. next
+        //   - next를 클릭했을 때, 이미지가 2번으로 변경되도록 설정
+        //   - 규칙을 찾아서 변수처리를 한다. (변수는 ''쓰면 안 됨)
+        //   - 증가연산자를 사용하여 계속 다음 이미지가 나오도록 설정(초기값이 있어야 한다.)
+        
+        $(function(){
+            var n = 1;  // var n = 1; >> next 안에 쓰면 초기값이 아닌 초기화값이 됨.
+            $('.next').click(function(){
+                
+                n++  // n+1 // n=n+1 >> 증가연산자 반드시 초기값 필수
+                
+                $('img').attr('src','img/img'+n+'.jpeg')
+            })
+            
+            $('.prev').click(function(){
+                n-- // n-+1  // n=n-1
+                $('img').attr('src','img/img'+n+'.jpeg')
+            })
+        })
+    </script>
+</body>
+</html>

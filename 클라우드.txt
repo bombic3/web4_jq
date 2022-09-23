@@ -1,0 +1,18 @@
+http://naver.me/5nc6o9nj
+
+0210
+
+
+http://github.com/jquery
+
+제이쿼리에서 공식으로 제공해주는 자료실
+수시로 업데이트 돼서 잘되던 게 안되고 안되던게 잘되고 그럼
+
+
+
+
+
+https://jquery.com/
+제이쿼리 다운로드 주황색 박스
+첫번째나 두번째 다른이름으로 저장 js폴더에 저장
+compressed, uncompressed 둘 중 아무거나

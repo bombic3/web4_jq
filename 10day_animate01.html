@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>animate01</title>
+	<style>
+		* { margin: 0; padding: 0;}
+		.box {
+			width: 100px;
+			height: 100px;
+			background-color: gray;
+			margin: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box box1"></div>
+	<div class="box box2"></div>
+	
+	<script src="js/jquery-3.5.1.js"></script>
+	<script>
+		// .box1의 margin-left를 500으로 설정
+		// css를 animate로만 바꾸면 됨. animate 사용자지정 에니메이션 반드시 중괄호!! 엔터가능 여러가지 적을 수 있음 ({},시간,가속도)
+		// swing(기본값):처음에 느렸다가 가속도 붙다가 다시 느려짐/linear:일정한 속도
+		$(function(){
+			$('.box1').animate({marginLeft:500},3000,'swing')
+			$('.box2').animate({
+				marginLeft:500 ,
+				width:300 ,
+				height:300
+			},3000,'linear')
+		})
+	</script>
+</body>
+</html>

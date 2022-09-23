@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery_filter1</title>
+	<style>
+		.box {
+			width: 100px;
+			height: 100px;
+			background-color: #ddd;
+		}
+		/* script는 head 안이나 body 안에 보통 style 다음에 씀 */
+	</style>
+	<script src="js/jquery-3.5.1.js"></script>
+	<script>
+		// 문서가 준비되면 다음함수를 실행하여라
+		// $(선택자).명령어(실행문)
+		$(document).ready(function(){
+			//box의 배경색을 변경하여라
+			//선택자에 약속어 제외한 태그나 지정이름들은 ''("")에 쓰기
+			$('.box').css('background-color','gray');
+			$('.box').css('width',300);
+		});
+		//;생략가능
+	</script>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+</html>

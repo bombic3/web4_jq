@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>event1</title>
+</head>
+<body>
+	<button>영화1</button>
+	<a href="http://www.naver.com">영화2</a>
+	
+	<p></p>
+	
+	<script src="js/jquery-3.5.1.js"></script>
+	<script>
+		$(document).ready(function(){
+			// button을 클릭했을 때 p에 'img/mov1.jgp'를 삽입
+			// 삽입 - prepend/append/before/after
+			$('button').click(function(){
+				$('p').prepend('<img src="img/mov1.jpg">')
+			})
+			
+			// a를 클릭했을 때 p에 'img/mov2.jpg'를 삽입
+			$('a').click(function(){
+				$('p').prepend('<img src="img/mov2.jpg">')
+				//실행 후 다음실행=a링크로 넘어가는 것을 멈춰라
+				return false; // 이 뒤로는 아무것도 입력하면 안 됨. 맨 아래 적기
+			})
+			
+			// mousedown : 마우스를 누르는 순간 - mov3.jpg
+			$('a').mousedown(function(){
+				$('p').prepend('<img src="img/mov3.jpg">')
+			})
+			
+			// mouseup : 마우스에서 손가락을 뗀 순간 - mov4.jpg
+			$('a').mouseup(function(){
+				$('p').prepend('<img src="img/mov4.jpg">')
+			})
+			
+			// mouseover : 마우스를 올렸을 때 - mov5.jpg
+			$('a').mouseover(function(){
+				$('p').append('<img src="img/mov5.jpg">')
+			})
+			
+			// mouseout : 마우스가 벗어났을 때 - p의 img를 삭제
+			// 삭제 - remove/empty
+			$('a').mouseout(function(){
+				$('p').remove()
+			})
+			
+			// Tap - focus (이전 shift+Tap)
+			// focus : 커서가 이동했을 때 - mov6.jpg
+			$('a').focus(function(){
+				$('p').append('<img src="img/mov6.jpg">')
+			})
+			
+			// blur : 커서가 빠져나갔을 때 - p의 img를 삭제
+			$('a').blur(function(){
+				$('p').empty()
+			})
+			
+			
+		})
+	</script>
+</body>
+</html>

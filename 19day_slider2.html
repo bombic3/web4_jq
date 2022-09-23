@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>slider</title>
+	<style>
+		* {margin:0; padding:0;}
+		ul,ol,li {list-style:none;}
+		
+		.slider {
+			width:400px;
+			height:580px;
+			margin:0 auto;
+			position:relative;
+		}
+		.list {
+			width:2000px;
+			position:absolute;
+			left:0;
+			top:0;
+		}
+		.list li {float:left; width:400px;}
+		.list li img {
+			width:100%;
+		}
+		.slider > button {
+			position:absolute;
+			top:50%;
+			transform:translateY(-50%);
+			z-index:10;
+			width:60px;
+			height:60px;
+			border-radius:10px;
+			cursor:pointer;
+		}
+		.slider .prev {left:10px;}
+		.slider .next {right:10px;}
+		
+		.indi {
+			position:absolute;
+			left:0;
+			bottom:10px;
+			z-index:10;
+			width:100%;
+			text-align:center;
+		}
+		.indi li {
+			display:inline-block;
+			width:10px;
+			height:10px;
+			border:2px solid #fff;
+			border-radius:10px;
+			text-indent:-9999px;
+			cursor:pointer;
+		}
+		.indi li.on {
+			background-color:#fff;
+		}
+	</style>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('.list').bxSlider({
+				auto: true,
+  autoControls: true,
+  stopAutoOnClick: true,
+  pager: true,
+  slideWidth: 400
+			});
+    });
+  </script>
+</head>
+<body>
+	<div class="slider">
+		
+		<ul class="list">
+			<li><a href="#"><img src="img/mov1.jpg" alt=""></a></li>
+			<li><a href="#"><img src="img/mov2.jpg" alt=""></a></li>
+			<li><a href="#"><img src="img/mov3.jpg" alt=""></a></li>
+			<li><a href="#"><img src="img/mov4.jpg" alt=""></a></li>
+			<li><a href="#"><img src="img/mov1.jpg" alt=""></a></li>
+		</ul>
+		
+	</div>
+	
+	
+</body>
+</html>
+
+
+
+
+
+
+
+

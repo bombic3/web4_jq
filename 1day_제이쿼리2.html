@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>제이쿼리2</title>
+	<style>
+		.box {
+			width: 100px;
+			height: 100px;
+			background-color: #ddd;
+		}
+	</style>
+	<script src="js/jquery-3.5.1.js"></script>
+	<script>
+		//무조건 두개 쓰기. 다운로드 소스 연결.
+		//문서가 준비되면 다음을 실행하여라
+		$(document).ready(function(){
+			// box의 배경색을 'pink'로 변경
+			// $('선택자').css('속성','속성값')
+			$('.box').css('background-color','pink');
+			$('.box').css('width','300px');
+			$('.box').css('height',200);
+			// 숫자는 따옴표 px없이 쓰기 가능. 따옴표없이px쓰면 안됨
+		})
+	</script>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+</html>

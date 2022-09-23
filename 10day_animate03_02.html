@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>animate03_02.if문</title>
+    <style>
+        * { margin: 0; padding: 0;}
+        html, body { height: 100%;}
+        #left {
+            width: 200px;
+            height: 100%;
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div id="left"></div>
+    <script src="js/jquery-3.5.1.js"></script>
+    <script>
+        // left를 클릭했을 때, left의 width가 200이라면 95%까지 늘리고, 아니면 다시 width가 200이 되어라
+        $(function(){
+            $('#left').click(function(){
+                if( $('#left').width() == 200 ){
+                // left가 200이라면
+                // $('#left').css('width') == '200px'
+                // $('#left').width() == 200
+                    $('#left').animate({width:'95%'})//body가 있으니 '95%'홑따음표 넣어야 됨
+                } else {
+                    $('#left').animate({width:200})
+                }
+            })
+        })
+    </script>
+</body>
+</html>

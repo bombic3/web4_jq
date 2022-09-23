@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>구구단2</title>
+</head>
+<body>
+	<script>
+		// 1~9 단까지 구구단을 표시
+		// 결과가 3의 배수일 경우에만 표시하여라
+		
+		for(i=1; i<=9; i++){
+			for(j=1; j<=9; j++){
+				// 조건문 : 3의 배수 : 결과를 3으로 나눴을 때 나머지 == 0
+				// %가 나누기
+				if(i*j%3 == 0 ){
+					document.write(i+' * '+j+' = '+i*j+'<br/>')
+				}
+			}
+			document.write('<hr/>')
+		}
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>resize01</title>
+</head>
+<body>
+    <script src="js/jquery-3.5.1.js"></script>
+    <script>
+        // 브라우저의 크기가 변할 때마다, 전체 브라우저의 사이즈를 체크하여 화면에 표시
+        
+        $(function(){
+            $(window).resize(function(){
+                var win_w = $(window).width()
+                $('body').text( win_w )
+            })
+            
+            $(window).resize()
+        })
+    </script>
+</body>
+</html>

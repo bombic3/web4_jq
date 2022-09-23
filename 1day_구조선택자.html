@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>구조선택자</title>
+	<style>
+		/*
+		구조 선택자
+		
+		css3선택자 - 하위브라우저 (ie7,8 혹은 일부 ie 10)에서 실행되지 않는다.
+		
+		li:first-child - 첫번째 li
+		li:last-child - 마지막 li
+		li:nth-child(3) - 3번째 li
+		li:nth-child(3n) - 3의 배수
+		li:nth-child(2n) - 짝수 (even)
+		li:nth-child(2n-1) - 홀수 (odd, 2n+1)
+		li:nth-last-child(3) - 마지막에서 3번째
+		
+		
+		*/
+		
+		
+		
+		* {margin: 0; padding: 0;}
+		ul,ol,li {list-style: none;}
+		a { text-decoration: none; color: #333;}
+		
+		.list {
+			width: 500px;
+			margin: 50px auto;
+		}
+		.list li {
+			float: left;
+			width: 100px;
+		}
+		.list li a {
+			display: block;
+			height: 40px;
+			line-height: 40px;
+			text-align-last: center;
+			background-color: #ddd;
+		}
+		.list li:first-child a {
+			border-radius: 15px 0 0 15px;
+			/* border-radius는 background-color가 있는 아이 한테 해야 함 */
+		}
+		.list li:last-child a {
+			border-radius: 0 15px 15px 0;
+		}
+		.list li:nth-child(3) a{
+			background-color: pink;
+		}
+		.list li:nth-child(even) a {
+			background-color: skyblue;
+		}
+		
+		/* 짝수 even 홀수 odd*/
+		
+		
+	</style>
+</head>
+<body>
+	<ul class="list">
+		<li><a href="#">list1</a></li>
+		<li><a href="#">list2</a></li>
+		<li><a href="#">list3</a></li>
+		<li><a href="#">list4</a></li>
+		<li><a href="#">list5</a></li>
+	</ul>
+</body>
+</html>

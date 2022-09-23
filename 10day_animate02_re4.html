@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>animate02 re2</title>
+	<style>
+        .box {
+            margin: 10px;
+            padding: 0;
+            width: 100px;
+            height: 100px;
+            background-color: hotpink;
+        }
+    </style>
+</head>
+<body>
+    <!--
+    콜백함수 사용해서 box가 1초동안 500px 오른쪽으로 이동하고, 1초동안 머물러 있다가 다시 처음으로 1초동안 이동
+	반복설정
+	setInterval : n초마다 한번씩 반복실행하도록 설정
+    -->
+    
+    <div class="box"></div>
+    
+    <script src="js/jquery-3.5.1.js"></script>
+    <script>
+        $(function(){
+            function ani(){
+                $('.box').animate({marginLeft:500},1000)
+                $('.box').delay(1000).animate({marginLeft:10},1000)
+            }
+            
+            setInterval( ani ,3000)
+            ani()
+        })
+    </script>
+    
+</body>
+</html>

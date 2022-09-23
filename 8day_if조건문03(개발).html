@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>if조건문03</title>
+</head>
+<body>
+   <input type="text">
+   <button>전송</button>
+   
+   <p></p>
+   
+   <script src="js/jquery-3.5.1.js"></script>
+    <script>
+        // 태그에 있는 내용은 text
+        // form태그에 있는 내용은 value라고 함
+        // .val('내용') : 내용을 변경하여라
+        // .val('') : 내용을 비워라
+        // .val() : 내용을 체크하여라/가지고 와라
+        
+        // 0. text : button을 클릭했을 때, p에 '전송완료'라고 표시
+        // 1. input에 내용이 있으면 p에 '전송이 완료되었습니다.'라고 표시하고, 내용이 없으면 p에 '이메일을 입력하세요'라고 표시
+        // 2. input에 내용이 없으면 input에 커서가 이동되도록 설정(focus)
+        // 3. input에 내용이 있으면, 해당 내용을 불러와서 '~에 전송이 완료되었습니다'라고 표시
+        $(function(){
+            $('button').click(function(){
+                // $('p').text('전송완료')
+                if( $('input').val() == '' ){ // 내용이 없으면이 훨씬 좋음 // 비어있다 : '' 
+                    $('p').text('이메일을 입력하세요')
+                    $('input').focus()
+                }else{
+                    $('p').text( $('input').val()+'에 전송이 완료되었습니다')
+                }
+            })
+        })
+    </script>
+</body>
+</html>

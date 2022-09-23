@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>20210309</title>
+    <style>
+        .page {}
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="page1">page1</a></li>
+            <li><a href="page2">page2</a></li>
+            <li><a href="page3">page3</a></li>
+            <li><a href="page4">page4</a></li>
+        </ul>
+    </nav>
+    
+    <div class="page page1" id="page1">page1</div>
+    <div class="page page2" id="page2">page2</div>
+    <div class="page page3" id="page3">page3</div>
+    <div class="page page4" id="page4">page4</div>
+    
+    <script src="js/jquery-3.5.1.js"></script>
+    <script>
+        $(Function(){
+          $('.gnb li a').click(function(){
+            // 0. test
+            // $('html,body').ainmate({scrollTop:1000})
+            
+            var link_id = $(this).attr('href')
+            n = $('#page2').offset().top
+            // console.log(n)
+            
+            $('html,body').animate({scrollTop:n})
+        })
+        
+        
+        $(window).scrll(function(){
+            var win_top = $(window).scrollTop() // 스크롤의 위치
+            
+            if(win_top >= 400){
+                $('.nav_wrap').css({backgroundColor:'gold'})
+            } else {
+                $('.nav_wrap').css({backgroundColor:'#333'})
+            }
+        })
+          })
+    </script>
+</body>
+</html>

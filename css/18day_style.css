@@ -1,0 +1,137 @@
+* {margin:0; padding:0;}
+.clear:after {
+    content:"";
+    clear:both;
+    display:block;
+}
+.wrap1 {
+    height:500px;
+    line-height:500px;
+    background-color:#333;
+    text-align:center;
+    font-size:50px;
+    color:#fff;
+}
+.wrap2 {
+    position:relative;
+    background-color:#ddd;
+    padding:100px 0;
+}
+.wrap2_inner {
+    width:800px;
+    margin:0 auto;
+    padding-bottom:200px;
+}
+.wrap2_inner div {
+    float:left;
+    width:400px;
+    height:50px;
+    clear:both;
+    margin:100px 0;
+}
+.wrap2_inner div strong {
+    display:block;
+    font-size:30px;
+}
+.wrap2_inner div p {
+    font-size:20px;
+    margin-top:10px;
+}
+.wrap2_inner div:nth-child(even){
+    float:right;
+    text-align:right;
+}
+.wrap2 button {
+    background-color:pink;
+    width:300px;
+    height:60px;
+    line-height:60px;
+    text-align:center;
+    border:2px solid gray;
+    position:absolute;
+    left:50%;
+    bottom:50px;
+    margin-left:-150px;
+}
+
+
+.wrap3 {
+    background-color:#aaa;
+    padding:100px 0 200px;
+}
+.wrap3_inner {
+    width:800px;
+    margin:0 auto;
+}
+.wrap3_inner div {
+    float:left;
+    width:250px;
+    height:300px;
+    margin-right:25px;
+    overflow:hidden;
+    position:relative;
+}
+.wrap3_inner div:last-child {
+    margin-right:0;
+}
+.wrap3_inner div span {
+	display:block;
+	line-height:300px;
+	text-align:center;
+	background-color:#eee;
+}
+
+/* parallax - 시간차로 나타나게 하는 방법
+	1. 우선 css @keyframes으로 애니메이션 장착
+*/
+@keyframes top {
+	from {transform:translateY(100px); opacity: 0; } /* opacity: 0; 에서 1;로 붙여주면 자연스러움*/
+	to {transform:translateY(0); opacity: 1; }
+}
+
+.wrap2_inner div strong {
+	animation: top 1s;
+	display: none;
+}
+.wrap2_inner div p {
+	animation: top 1s .5s backwards; /* delay값 0.5초 주기 backwards 필수*/
+	display: none;
+}
+/* 2. 새로고침 해야만 애니메이션이 실행 됨. 스크롤내리면 그냥 보이는 것과 같음
+
+			<애니메이션이 실행되는 순간>
+			1. 새로고침
+			2. display: none; 이었다가 block;이 되는 순간 (마우스오버, 스크롤 등)
+				***여기서 스크롤을 제이쿼리로 지정***
+
+	3. .on 클래스가 붙는 순간 display: block; 이 되어라 */
+.wrap2_inner div.on strong,
+.wrap2_inner div.on p,
+.wrap3_inner div.on span {
+	display: block;
+}
+
+@keyframes right {
+	from {transform: translateX(-100%); }
+	/* to {transform: translateX(0); } 0으로 돌아오는 건 생략 가능 */
+}
+.wrap3_inner div span {
+	animation: right 1.5s backwards; /* 두번째 세번째 delay값 그냥 처음 딜레이 값에 backwards 써주면 됨 */
+	display: none;
+}
+
+.wrap3_inner div:nth-child(2) span {
+	animation-delay:  .3s;
+}
+
+.wrap3_inner div:nth-child(3) span {
+	animation-delay:  .6s;
+}
+
+
+
+
+
+
+
+

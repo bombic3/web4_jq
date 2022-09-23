@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>animate03_01.width체크</title>
+    <style>
+        .box {
+            width: 80%;
+            height: 500px;
+            background-color: gray;
+            font-size: 50px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">box</div>
+    
+    <script src="js/jquery-3.5.1.js"></script>
+    <script>
+        // box의 width를 체크하여 box에다가 표시
+        $(function(){
+            var box_w1 = $('.box').css('width')
+            var box_w2 = $('.box').width()
+            
+            $('.box').html(box_w1 +'<br/>'+ box_w2)
+            // 문자형 + 했으므로 text가 아닌 html로 해야 함
+            
+            
+            // .css('width') > px라는 단위까지 체크 > 문자형데이터(계산 불가)
+            // .width() > 수치만 체크 > 숫자형 데이터 (계산가능)
+        })
+    </script>
+</body>
+</html>

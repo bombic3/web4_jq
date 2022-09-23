@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>resize</title>
+</head>
+<body>
+    
+    <script src="js/jquery-3.5.1.js"></script>
+    <script>
+        //브라우저의 width를 체크하여 body에 표시하여라
+        $(function(){
+            $(window).resize(function(){
+                var win_w = $(window).width()
+                $('body').text( win_w )
+            })
+            
+            $(window).resize()
+        })
+    </script>
+</body>
+</html>

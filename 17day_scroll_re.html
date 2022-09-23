@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>scroll</title>
+	<style>
+		* {margin: 0; padding: 0;}
+		ul,ol,li { list-style: none}
+		a {text-decoration: none; }
+		
+		.nav_wrap {
+			background-color: #333;
+			position: fixed;
+			left: 0;
+			top: 0;
+			width: 100%;
+			z-index: 100;
+		}
+		.gnb {
+			width: 400px;
+			height: 40px;
+			margin: 0 auto;
+		}
+		.gnb li {
+			float: left;
+			width: 100px;
+		}
+		.gnb li a {
+			display: block;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+			color: #fff;
+		}
+		.page {
+			height: 1000px;
+			line-height: 1000px;
+			text-align: center;
+			font-size: 100px;
+		}
+		.page1 { background-color: #ddd; }
+		.page2 { background-color: #aaa; }
+		.page3 { background-color: #777; }
+		.page4 { background-color: #555; }
+	</style>
+</head>
+<body>
+	<nav class="nav_wrap">
+		<ul class="gnb">
+			<li><a href="#page1">page1</a></li>
+			<li><a href="#page2">page2</a></li>
+			<li><a href="#page3">page3</a></li>
+			<li><a href="#page4">page4</a></li>
+		</ul>
+	</nav>
+	
+	<div class="page page1" id="page1">page1</div>
+	<div class="page page2" id="page2">page2</div>
+	<div class="page page3" id="page3">page3</div>
+	<div class="page page4" id="page4">page4</div>
+	
+	<!-- http://github.com/jquery 제이쿼리 공식 자료 사이트 mousewheel 다운받아서 압출풀고 두가지 중에 한가지 연결 -->
+	<!-- 개별적인건 아래에 공통적인건 위에 script 쓰기 -->
+	<script src="js/jquery-3.5.1.js"></script>
+	<script src="js/jquery.mousewheel.js"></script>
+	<script>
+		$(function(){
+			// a를 클릭했을 때, 해당하는 위치로 이동
+			$('.gnb li a').click(function(){
+				// 0. test
+				// $('html,body').animate({scrollTop:1000})
+				// 아래로 내려가는 값이 + (음수값은 없음), 한번 내려가는 값이 보통 100
+				
+				// 1. page의 높이가 1000씩 고정되어 있는 경우 1000씩 이동
+				// n = $(this).parent().index() // this는 a 이므로 li의 index값
+				// $('html,body').animate({scrollTop:1000 * n})
+				
+				
+				/*
+				// 2. page의 높이가 유동적인 경우 - page2만 해보기
+				// page2에 대한 n값 .offset().top 사용 ***top은 괄호 안씀***
+				n = $('.page2').offset().top 
+				//console.log(n)
+				
+				// console.log  는 결과를 보여주는 값
+				// offset은 좌표값 ***중요***
+				
+				$('html,body').animate({scrollTop:n})
+				
+				*/
+				
+				// 2. page의 높이가 유동적인 경우 
+				// id값 넣어서 n값 변수처리하기
+				var link_id = $(this).attr('href')
+				n = $(link_id).offset().top
+				$('html,body').animate({scrollTop:n})
+			})
+			
+			
+			// 스크롤이 움직였을 때 : scroll 이라는 명령어 많이 사용 함
+			$(window).scroll(function(){
+				var win_top = $(window).scrollTop() // 스크롤의 위치 (좌표값)
+				if( win_top >= 400 ){
+					$('.nav_wrap').css({backgroundColor:'gold'}) // 요즘 많이 씀
+				} else {
+					$('.nav_wrap').css({backgroundColor:'#333'}) // 많이 사용 함
+				}
+			})
+			// 마우스 휠을 체크하라는 명령어는 제이쿼리에 없음 > 제이쿼리 공식사이트에서 mousewhell 다운받기
+			
+			/*
+			$('body').mousewheel(function(event,delta){
+				// delta : 마우스 휠의 방향
+				// delta > 0 : 델타가 0보다 크면 마우스 휠을 위로 올렸다는 뜻
+				// delta < 0 : 델타가 0보다 작아지면 마우스 휠을 아래로 내렸다는 뜻
+				
+				if( delta > 0 ){
+					console.log('위로 올렸습니다')
+				} else {
+					console.log('아래로 내렸습니다')
+					
+				}
+				
+			})
+			*/
+			
+			
+			$('.page').mousewheel(function(event,delta){
+				if( delta > 0 ){
+					var prev = $(this).prev().offset().top
+					$('html,body').animate({scrollTop:prev})
+				} else {
+					var next = $(this).next().offset().top
+					$('html,body').animate({scrollTop:next})
+				}
+				
+			})
+			
+			
+		})
+	</script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</body>
+</html>

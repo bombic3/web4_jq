@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>gallery2</title>
+</head>
+<body>
+    <ul>
+        <li><a href="img/img1.jpeg" data-t="영화1" title="조이">영화1</a></li>
+        <li><a href="img/img2.jpeg" data-t="영화2" title="널 기다리며">영화2</a></li>
+        <li><a href="img/img3.jpeg" data-t="영화3" title="귀향">영화3</a></li>
+        <li><a href="img/img4.jpeg" data-t="영화4" title="주토피아">영화4</a></li>
+        <li><a href="img/img5.jpeg" data-t="영화5" title="갓 오브 이집트">영화5</a></li>
+    </ul>
+    
+    <p>
+        <img src="img/img.jpg" alt="">
+        <br/>
+        제목 : <span>조이</span>
+    </p>
+    
+    <script src="js/jquery-3.5.1.js"></script>
+    <script>
+        // 0. text : a를 클릭했을 때, a의 컬러를 red로 변경
+        // 0. text : a를 클릭했을 때, 클릭한 a의 컬러를 red로 변경
+        // 클릭한 a = this - 약속이기 때문에 ''쓰지 않음
+        
+        // 1. a를 클릭했을 때, 클릭한 a의 href값을 가지고 와서 img의 src값을 변경하여라
+        // = a를 클릭했을 때, p의 img가 img$로 변경되도록 설정(하나씩 쓰는 노가다 대신 var지정해서 한번에)
+        
+        // 2. a를 클릭했을 때, 클릭한 a의 글자를 가지고 와서, img의 alt를 변경
+        
+        // **** target="_blank" title="" 필수!!!! ****
+        
+        // 3. a에 마우스를 올렸을 때, 해당 a의 title을 가지고 와서, 해당 a의 글자를 변경
+        
+        // a태그에 쓸 수 있는 속성 값은 3개 + 사용자 지정 속성
+        // a의 attr - href, target, title + data- 
+        // 사용자 지정 속성 data-
+        
+        // 4. a에서 마우스가 빠져나갔을 때, 해당 a의 data-t값을 가지고 와서 해당 a의 글자를 변경하여라
+        
+        // 5. a를 클릭했을 때, 해당 a의 글자를 가지고 와서 span의 글자를 변경
+        
+        $(function(){
+            $('a').click(function(){
+                // $(this).css({color:'red'})
+                var a_href = $(this).attr('href')
+                $('img').attr('src',a_href)
+                
+                var a_title = $(this).attr('title')
+                $('img').attr('art',a_title)
+                
+                
+                
+                return false;
+            })
+            
+            $('a').mouseover(function(){
+                var a_title = $(this).attr('title')
+                $(this).text(a_title)
+            })
+            
+            $('a').mouseout(function(){
+                var a_data = $(this).attr('data-t')
+            })
+            
+        })
+    </script>
+</body>
+</html>

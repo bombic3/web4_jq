@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>gnb2</title>
+	<style>
+		*{ margin: 0; padding: 0;}
+		ul,ol,li { list-style: none;}
+		a { text-decoration: none; color: #333;}
+		
+		.nav_wrap {
+			
+		}
+		.gnb {
+			width: 800px;
+			margin: 0 auto;
+			height: 40px;
+		}
+		.gnb > li {
+			float: left;
+			width: 200px;
+			position: relative; /* .sub에 absolute 주고 날라가 있으면 부모태그에 relative*/
+		}
+		.gnb li a {
+			display: block;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+			background-color: #ddd;
+		}
+		
+		.gnb > li > a {
+			background-color: #333;
+			color: #fff;
+		}
+		
+		.sub {
+			position: absolute;
+			left: 0;
+			top: 40px;
+			width: 100%;
+			display: none;
+		}
+		
+	</style>
+	
+	<script src="js/jquery-3.5.1.js"></script>
+	<script>
+		// sub가 하나씩 내려오도록 설정 (a 도 되고 li도 됨 mouseenter )
+		// .next() 아니면 .siblings()
+		
+		$(function(){
+			/*
+			$('.gnb > li > a').mouseenter(function(){
+				$(this).next().slideDown(100)
+			})
+			*/
+			
+			$('.gnb > li').mouseenter(function(){
+				$(this).find('.sub').slideDown(100)
+				// $('.sub',this).slideDown(100)
+			})
+			
+			// leave는 a포함하면 안 됨. 마우스 올리는 영역이 딱 그 메뉴에만 머물러서 나타난 카테고리에 대면 사라지므로 그 카테고리 영역인 li까지 해야 됨.got it?
+			$('.gnb > li').mouseleave(function(){ 
+				$('.sub').stop().slideUp(100)
+			})
+		})
+		
+		
+			
+		
+		
+		
+	</script>
+	
+</head>
+<body>
+	<nav class="nav_wrap">
+		<ul class="gnb">
+			<li>
+				<a href="#">menuA</a>
+				<ul class="sub">
+					<li><a href="#">subA</a></li>
+					<li><a href="#">subA</a></li>
+					<li><a href="#">subA</a></li>
+					<li><a href="#">subA</a></li>
+				</ul>
+			</li>
+			
+			<li>
+				<a href="#">menuB</a>
+				<ul class="sub">
+					<li><a href="#">subB</a></li>
+					<li><a href="#">subB</a></li>
+					<li><a href="#">subB</a></li>
+					<li><a href="#">subB</a></li>
+				</ul>
+			</li>
+			
+			<li>
+				<a href="#">menuC</a>
+				<ul class="sub">
+					<li><a href="#">subC</a></li>
+					<li><a href="#">subC</a></li>
+					<li><a href="#">subC</a></li>
+					<li><a href="#">subC</a></li>
+				</ul>
+			</li>
+			
+			<li>
+				<a href="#">menuD</a>
+				<ul class="sub">
+					<li><a href="#">subD</a></li>
+					<li><a href="#">subD</a></li>
+					<li><a href="#">subD</a></li>
+					<li><a href="#">subD</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+	</nav>
+	
+	<div>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aliquam, odio labore quidem nulla quo beatae dolor debitis assumenda a, veniam praesentium ipsam. Soluta enim voluptatibus aspernatur nobis sapiente placeat.
+	</div>
+	
+</body>
+</html>

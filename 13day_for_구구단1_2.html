@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>for 구구단 만들기1</title>
+</head>
+<body>
+	<script>
+		// 1. 1단부터 9단까지의 구구단을 표시
+		// 2. 5단까지만 표시 되도록 설정
+		// 3. 결과가 20을 넘어가면 화면에 표시하지 말아라
+		
+		for(i=1; i<=9; i++){
+			document.write(i*i +'<br/>')
+		} // 같은 숫자끼리만 곱해지게 됨
+		
+		document.write('<hr/>'+'2. 5단까지만 표시 되도록 설정'+'<hr/>')
+		
+		// 중첩 for문 사용. 보통 i 다음 j 씀
+		// for(i=1; i<=9; i++){
+		// 	for(j=1; j<=9; j++){
+		//		document.write(i*j +'<br/>')
+		//	}
+		//}
+		
+		for(i=1; i<=9; i++){
+			for(j=1; j<=9; j++){
+				
+				/* if(i==6){
+					break
+					} */
+				// 안에다가 쓰면 5까지 나오도록 하는 게 6으로 써줘야 함
+				
+				
+				
+				document.write(i+' * '+j+' = '+i*j+'<br/>')
+				// document.write('<hr/>')
+				// break // j값이 안 돌아감
+			}
+			document.write('<hr/>')
+			// break // i값이 안 돌아감 (for문을 더 이상 돌리지 말아라. for문을 빠져나가라)
+			
+			if(i==5){ // 5까지 표시 되는 거임 
+				break
+			}
+			
+		}
+		
+		document.write('3. 결과가 20을 넘어가면 화면에 표시하지 말아라'+'<hr/>')
+		
+		for(i=1; i<=9; i++){
+			for(j=1; j<=9; j++){
+				if(i*j > 20){
+					break // 자리에 따라 결과가 완전히 달라짐
+				}
+				document.write(i+' * '+j+' = '+i*j+'<br/>')
+				// 여기에 if 쓰면 20넘어 간 뒤에 브레이크 걸리는 게 됨
+			}
+			document.write('<hr/>')
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>animate3.03.px</title>
+    <style>
+        * { margin: 0; padding: 0;}
+        html,body { height: 100%;}
+        #left {
+            width: 200px;
+            height: 100%;
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div id="left"></div>
+    
+    <script src="js/jquery-3.5.1.js"></script>
+    <script>
+        $(function(){
+            // left를 클릭했을 때, left의 width가 200이라면 전체브라우저에서 50px 뺀만큼 늘리고, 아니면 다시 width가 200이 되어라
+            $('#left').click(function(){
+                var win_w = $(window).width()
+                //전체 브라우저의 크기 변수처리 한 것.
+                // .click 밖에 쓰면 한 번만 사용한다는 뜻 click밖에 쓰게 되면 새로고침 한 순간 무용지물 click과 상관이 없게 됨.
+                // .click 안에 써야 함. 고정값인지 클릭할 때마다 변하는지. 변하면 새로고침 할 때마다 돌 때마다 체크 해야 하기 때문에 안에 써야 함.
+                
+                if( $('#left').width() == 200 ){
+                    $('#left').animate({width: win_w - 50})
+                    // width:전체브라우저에서 50px뺀 만큼 설정
+                    // width: 100% - 50px (100%사이즈 측정한 것 변수처리)
+                    // width: win_w - 50
+                    
+                } else {
+                    $('#left').animate({width:200})
+                }
+            })
+        })
+    </script>
+</body>
+</html>

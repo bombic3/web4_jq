@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>class</title>
+	<style>
+		* {margin: 0; padding: 0;}
+		h1 {
+			font-size: 24px;
+			margin: 20px;
+		}
+		.box {
+			width: 100px;
+			height: 100px;
+			line-height: 100px;
+			margin: 20px;
+			margin-bottom: 50px;
+			background-color: #ddd;
+			border: 3px solid #000;
+			text-align: center;
+		}
+		.active {
+			background-color: #333;
+			border-color: gold;
+			color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<h1>addClass : class를 추가할 때 사용</h1>
+	<div class="box box1">addClass</div>
+	
+	<h1>removeClass : class를 삭제할 때 사용</h1>
+	<div class="box box2 active">removeClass</div>
+	
+	<h1>toggleClass : class를 추가/삭제</h1>
+	<div class="box box3">toggleClass</div>
+	
+	<h1>hasClass : class 유무를 체크</h1>
+	<div class="box box4">hasClass</div>
+	
+	<script src="js/jquery-3.5.1.js"></script>
+	<script>
+		$(function(){
+			$('.box1').click(function(){
+				// $(this).attr('class','active')
+				// 원래 있는 것 삭제 시키고 클래스를 active만 남게 됨
+				
+				$(this).addClass('active')
+			})
+			
+			$('.box2').click(function(){
+				$(this).removeClass('active')
+			})
+			
+			$('.box3').click(function(){
+				$(this).toggleClass('active')
+			})
+			
+			// hasClass : class유무를 확인 - true/false
+			// if (class가 있니?) = if( $(this).hasClass('active') == true )
+			$('.box4').click(function(){
+				$(this).toggleClass('active')
+				if( $(this).hasClass('active') == true ){
+					// box4에 active가 있으면 0라는 글자를 표시
+						$(this).text('o')
+				   } else {
+					// box4에 active가 없으면 x라는 글자를 표시
+					   $(this).text('x')
+				   }
+			})
+		})
+	</script>
+	
+	
+	
+	
+	
+</body>
+</html>

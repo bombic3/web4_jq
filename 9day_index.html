@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+    <ul>
+        <li><a href="#">list1</a></li>
+        <li><a href="#">list2</a></li>
+        <li><a href="#">list3</a></li>
+        <li><a href="#">list4</a></li>
+        <li><a href="#">list5</a></li>
+    </ul>
+    <p>현재 클릭한 a는 <span>all</span> 개 중에서 <strong>n</strong> 번째 a입니다.</p>
+    
+    <script src="js/jquery-3.5.1.js"></script>
+    <script>
+        $(function(){
+            // length : 갯수를 세는 명령어. 괄호 쓰지 않음!!
+            var all = $('li').length
+            $('span').text(all)
+            
+            // index : 순서값 구할 때 사용
+            $('a').click(function(){
+                var n = $(this).parent().index()+1 // 부모인 li의 순서이므로. 0부터 시작하므로 +1
+                $('strong').text(n)
+            })
+        })
+    </script>
+</body>
+</html>
